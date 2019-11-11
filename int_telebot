@@ -1,0 +1,21 @@
+import telebot
+
+bot = telebot.TeleBot('864192806:AAHknRKIiwr9XnHWsb5_nDC87_O83ngZDkY')
+keyboard1 = telebot.types.ReplyKeyboardMarkup()
+keyboard1.row('1', '2', '3', '4')
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'Привет, ты нажал /start тем самым ты запустил меня. У тебя есть выбор нажать 1 из 3 кнопок. Жми!', reply_markup=keyboard1)
+
+@bot.message_handler(content_types=['text'])
+def send_text(message):
+    if message.text.lower() == '1':
+        bot.send_message(message.chat.id, '')
+    elif message.text.lower() == '2':
+        bot.send_message(message.chat.id, '')
+    elif message.text.lower() == '3':
+        bot.send_message(message.chat.id, '')
+    elif message.text.lower() == '4':
+        bot.send_message(message.chat.id, '')
+
+bot.polling()
